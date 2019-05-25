@@ -1,10 +1,12 @@
 package com.bilgeadam.example.springboot.controller;
 
+import com.bilgeadam.example.springboot.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
@@ -48,6 +50,20 @@ public class HomeController {
         model.addAttribute("userPassword",password);
 
         return "homeParameter";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @PostMapping("/user")
+    public String user(User user,Model model){
+
+        model.addAttribute("userName",user.getUserName());
+        model.addAttribute("password",user.getPassword());
+
+        return "user";
     }
 
 
