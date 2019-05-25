@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -31,6 +32,25 @@ public class HomeController {
 
         return "homePathVariable";
     }
+
+    @GetMapping("/homeParameter")
+    public String homeParameter(@RequestParam(value = "userName",defaultValue = "USER") String username,Model model){
+
+        model.addAttribute("userParameterName",username);
+        return "homeParameter";
+    }
+
+    @GetMapping(value = "/homeParameterPassword")
+    public String homeMultiParameter(@RequestParam(value = "userName",defaultValue = "USER")String username
+            ,@RequestParam(value = "password",defaultValue = "***") String password,Model model){
+
+        model.addAttribute("userParameterName",username);
+        model.addAttribute("userPassword",password);
+
+        return "homeParameter";
+    }
+
+
 
 
 }
