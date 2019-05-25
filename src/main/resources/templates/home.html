@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Welcome To Home Page</h1>
-    <h3 th:text="${serverDate}"/>
+    <h1>Welcome To Server Home Page</h1>
+    <h3 th:text="'Server Date Info '+${serverDate}"/>
+    <h4 th:text="'Server Port Info' + ${portInfo}"/>
 </body>
 </html>
