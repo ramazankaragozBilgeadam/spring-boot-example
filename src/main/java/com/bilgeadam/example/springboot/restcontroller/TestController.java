@@ -1,17 +1,15 @@
 package com.bilgeadam.example.springboot.restcontroller;
 
 import com.bilgeadam.example.springboot.entity.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
+@RequestMapping(value = "testController")
 public class TestController {
 
-
-    @GetMapping("/test")
+    @GetMapping("test")
     public String test(){
         return "Hello Spring Rest";
     }
@@ -26,6 +24,13 @@ public class TestController {
         user.setSalery(2000.500);
         user.setBirthDate(new Date());
 
+        return user;
+    }
+
+    @PostMapping("/userKaydet")
+    public User userKaydet(@RequestBody User user){
+        System.out.println(user);
+        System.out.println(user.getUserInfo());
         return user;
     }
 

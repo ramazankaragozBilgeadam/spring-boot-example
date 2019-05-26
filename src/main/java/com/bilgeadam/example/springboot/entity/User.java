@@ -14,6 +14,8 @@ public class User {
 
     private Date birthDate;
 
+    private UserInfo userInfo;
+
     public Date getBirthDate() {
         return birthDate;
     }
@@ -52,5 +54,25 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", year=" + year +
+                ", salery=" + salery +
+                ", birthDate=" + birthDate +
+                ", userInfo=" + userInfo +
+                '}';
     }
 }
